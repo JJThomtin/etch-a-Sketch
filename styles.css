@@ -11,19 +11,38 @@ section {
     gap: 20px
 }
 
+.controls button {
+    width: 250px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
 footer {
     text-align: center;
-    position:fixed;
-    bottom:0;
+    position: fixed;
+    bottom: 0;
 }
-.toolbox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.sidebar {
     height: 700px;
     width: 400px;
     border: solid black 2px;
 }
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 165px;
+}
+
+#setting {
+    width: 50px;
+    height: 50px;
+    bottom: 0;
+    margin-left: 20px;
+}
+
+
 .canvas {
     height: 700px;
     width: 700px;
