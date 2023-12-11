@@ -1,8 +1,14 @@
 const canvas = document.getElementById("canvas");
-let rows = document.getElementsByClassName("gridRow");
-let cols = document.getElementsByClassName("gridCol");
 
-function renderGrid(num_of_rows_and_col) {
-    makeRows(num_of_rows_and_col);
-    makeCols(num_of_rows_and_col);
-}
+function makeRows(rows, cols) {
+    canvas.style.setProperty('--grid-rows', rows);
+    canvas.style.setProperty('--grid-cols', cols);
+    canvas.style.setProperty('--gridsize', 700/cols)
+    for (c = 0; c < (rows * cols); c++) {
+      let cell = document.createElement("div");
+      canvas.appendChild(cell).className = "grid-item";
+    };
+  };
+  
+  makeRows(100, 100);
+  
