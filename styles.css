@@ -1,19 +1,30 @@
 body {
+    margin: 0;
+    padding: 0;
+}
 
+
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
 }
 
 header {
     text-align: center;
+    margin-bottom: 80px;
 }
+
 section {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     gap: 20px
 }
 
-.controls button {
-    width: 250px;
-    height: 50px;
+button {
+    width: 150px;
+    height: 30px;
     margin-bottom: 20px;
 }
 
@@ -22,26 +33,37 @@ footer {
     position: fixed;
     bottom: 0;
 }
-.sidebar {
-    height: 700px;
-    width: 400px;
-    border: solid black 2px;
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
 }
 
-.controls {
+.colour span {
+    text-align: left;
+}
+.left-sidebar {
+    height: 680px;
+    width: 200px;
+    border: solid black 2px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 165px;
-}
+    gap: 24px;
+} 
 
-#setting {
-    width: 50px;
-    height: 50px;
-    bottom: 0;
-    margin-left: 20px;
+.right-sidebar {
+    height: 680px;
+    width: 200px;
+    border: solid black 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
 }
-
 
 #canvas {
     height: 680px;
@@ -52,18 +74,25 @@ footer {
     grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
+.bar {
+    display: flex;
+    flex-direction: column;
+}
+
+.bar span {
+    text-align: center;
+}
 .gridRow,
 .gridCol {
     border: 1px solid black;
 }
 
-:root {
-  --grid-cols: 1;
-  --grid-rows: 1;
-  --gridsize: 0;
-}
 
 .grid-item {
   border: 1px solid #ddd;
-  text-align: center;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
 }

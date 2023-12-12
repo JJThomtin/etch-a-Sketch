@@ -9,29 +9,38 @@
 <body>
     <header><h1>Etch-A-Sketch</h1></header>
     <section>
-        <div class="sidebar">
-            <div class="controls">
-                <h3>Toolbox</h3>
+        <div class="content">
+            <div class="left-sidebar">
+                <span><strong>Toolbox</strong></span>
                 <div class="colour">
                     <span>Pen Colour</span>
+                    <input type="color" name="colour" id="colour-wheel">
                 </div>
                 <button id="eraser-btn">Eraser</button>
                 <button id="randomizer-btn">Colour Randomizer</button>
                 <button id="lighten-btn">Lighten</button>
                 <button id="darken-btn">Darken</button>
-                <span>Bar</span>
-                <input type="range" name="grid" id="grid-id" min="0" min="100">
-                <button id="clear-btn">Clear</button>
             </div>
-            <button id="setting"><i class="fa fa-gear" style="font-size:36px;"></i></button>
-        </div>
-        <div id="canvas">
 
+            <div id="canvas">
+    
+            </div>
+
+            <div class="right-sidebar">
+                <div class="bar">
+                    <span><strong>Bar Size</strong></span>
+                    <input type="range" name="grid" id="grid-id" min="0" min="100">
+                </div>
+                <button id="clear-btn">Clear</button>
+                <button id="display-grid-btn">Toggle Grid Display</button>
+                <button id="setting"><i class="fa fa-gear" style="font-size:36px;"></i></button>
+            </div>
         </div>
+            
     </section>
     <footer>
-        @JJThomtin
-        @Odin Project
+        <p><a href="">@JJThomtin</a><br>
+        <a href="">@Odin Project</a></p>
     </footer>
     <script src="javascript.js"></script>
 </body>
