@@ -1,15 +1,20 @@
-const canvas = document.getElementById("canvas");
-const clear_btn = document.getElementById("clear-btn");
+const CANVAS = document.getElementById("canvas");
+const CLEAR_BTN = document.getElementById("clear-btn");
+const COLOUR_WHEEL = document.getElementById("colour-wheel");
 function makeRows(rows, cols) {
-    canvas.style.setProperty('--grid-rows', rows);
-    canvas.style.setProperty('--grid-cols', cols);
+    CANVAS.style.setProperty('--grid-rows', rows);
+    CANVAS.style.setProperty('--grid-cols', cols);
     for (c = 0; c < (rows * cols); c++) {
       let cell = document.createElement("div");
-      canvas.appendChild(cell).className = "grid-item";
+      CANVAS.appendChild(cell).className = "grid-item";
     };
 };
 
-clear_btn.onclick = function() {
+COLOUR_WHEEL.addEventListener("input", function(){ 
+    document.documentElement.style.setProperty('--pen-colour', COLOUR_WHEEL.value);
+})
+
+CLEAR_BTN.onclick = function() {
     document.querySelectorAll(".grid-item").forEach((p) => {
         p.style.backgroundColor = "white"
     })
@@ -17,7 +22,7 @@ clear_btn.onclick = function() {
 
 
 window.onload = () => {
-    makeRows(100, 100)
+    makeRows(10, 10)
 }
 
   
