@@ -1,5 +1,6 @@
 const CANVAS = document.getElementById("canvas");
 const CLEAR_BTN = document.getElementById("clear-btn");
+const ERASER_BTN = document.getElementById("eraser-btn");
 const COLOUR_WHEEL = document.getElementById("colour-wheel");
 function makeRows(rows, cols) {
     CANVAS.style.setProperty('--grid-rows', rows);
@@ -16,10 +17,13 @@ COLOUR_WHEEL.addEventListener("input", function(){
 
 CLEAR_BTN.onclick = function() {
     document.querySelectorAll(".grid-item").forEach((p) => {
-        p.style.backgroundColor = "white"
+        p.style.backgroundColor = "white";
     })
 }
 
+ERASER_BTN.onclick = function() {
+    document.documentElement.style.setProperty('--pen-colour', "#FFFFFF");
+}
 
 window.onload = () => {
     makeRows(10, 10)
