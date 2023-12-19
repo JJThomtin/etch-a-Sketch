@@ -45,6 +45,10 @@ footer {
     text-align: left;
 }
 
+.grid-item {
+    user-select: none;
+}
+
 .left-sidebar {
     height: 680px;
     width: 200px;
