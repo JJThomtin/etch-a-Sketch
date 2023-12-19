@@ -1,4 +1,5 @@
 const CANVAS = document.getElementById("canvas");
+const PEN_BTN = document.getElementById("pen-btn");
 const CLEAR_BTN = document.getElementById("clear-btn");
 const ERASER_BTN = document.getElementById("eraser-btn");
 const COLOUR_WHEEL = document.getElementById("colour-wheel");
@@ -13,8 +14,8 @@ function makeRows(rows, cols) {
     CANVAS.style.setProperty('--grid-cols', cols);
     for (c = 0; c < (rows * cols); c++) {
       let cell = document.createElement("div");
-      cell.addEventListener('mouseover', draw)
-      cell.addEventListener('mousedown', draw)
+      cell.addEventListener('mouseover', draw);
+      cell.addEventListener('mousedown', draw);
       CANVAS.appendChild(cell).className = "grid-item";
     };
 };
@@ -30,6 +31,7 @@ CLEAR_BTN.onclick = function() {
 }
 
 COLOUR_RANDOMIZER_BTN.onclick = function() {
+    CANVAS.classList.add("rdm-colour-active");
     randomizeColour();
 }
 
@@ -42,8 +44,16 @@ function randomizeColour() {
 function draw(e) {
     if (e.type === 'mouseover' && !mouseDown) return
     e.target.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue("--pen-colour")
+    if (CANVAS.classList.contains("rdm-colour-active")) randomizeColour()
 } 
+
+PEN_BTN.onclick = function() {
+    if (CANVAS.classList.contains("rdm-colour-active")) CANVAS.classList.remove("rdm-colour-active")
+    document.documentElement.style.setProperty('--pen-colour', COLOUR_WHEEL.value);
+
+}
 ERASER_BTN.onclick = function() {
+    if (CANVAS.classList.contains("rdm-colour-active")) CANVAS.classList.remove("rdm-colour-active")
     document.documentElement.style.setProperty('--pen-colour', "#FFFFFF");
 }
 
@@ -59,7 +69,8 @@ const getRandomInt = (max) => {
     return Math.floor(Math.random() * max)
 }
 window.onload = () => {
-    makeRows(10, 10)
+    makeRows(16, 16)
 }
+
 
   
