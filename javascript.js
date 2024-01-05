@@ -1,10 +1,20 @@
+const MODE = {
+    "Draw": 1,
+    "Eraser": 2,
+    "Lighten": 3,
+    "Darken": 4,
+    "Colour_Randomizer": 5
+}
 const CANVAS = document.getElementById("canvas");
 const PEN_BTN = document.getElementById("pen-btn");
 const CLEAR_BTN = document.getElementById("clear-btn");
 const ERASER_BTN = document.getElementById("eraser-btn");
+const DARKEN_BTN = document.getElementById("darken-btn");
+const LIGHTEN_BTN = document.getElementById("lighten-btn");
 const COLOUR_WHEEL = document.getElementById("colour-wheel");
 const COLOUR_RANDOMIZER_BTN = document.getElementById("randomizer-btn");
 
+let currentMode = MODE["Draw"];
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
@@ -30,9 +40,12 @@ CLEAR_BTN.onclick = function() {
     })
 }
 
+LIGHTEN_BTN.onclick = function() {
+    currentMode = MODE["Lighten"];
+}
+
 COLOUR_RANDOMIZER_BTN.onclick = function() {
-    CANVAS.classList.add("rdm-colour-active");
-    randomizeColour();
+    currentMode = MODE["Colour_Randomizer"];
 }
 
 function randomizeColour() {
@@ -43,18 +56,30 @@ function randomizeColour() {
 
 function draw(e) {
     if (e.type === 'mouseover' && !mouseDown) return
+    switch (currentMode) {
+        case 1:
+            document.documentElement.style.setProperty('--pen-colour', COLOUR_WHEEL.value);
+            break;
+        case 2:
+            document.documentElement.style.setProperty('--pen-colour', "#FFFFFF");
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            randomizeColour();
+            break;
+    }
     e.target.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue("--pen-colour")
-    if (CANVAS.classList.contains("rdm-colour-active")) randomizeColour()
 } 
 
 PEN_BTN.onclick = function() {
-    if (CANVAS.classList.contains("rdm-colour-active")) CANVAS.classList.remove("rdm-colour-active")
-    document.documentElement.style.setProperty('--pen-colour', COLOUR_WHEEL.value);
-
+    currentMode = MODE["Draw"];
 }
+
 ERASER_BTN.onclick = function() {
-    if (CANVAS.classList.contains("rdm-colour-active")) CANVAS.classList.remove("rdm-colour-active")
-    document.documentElement.style.setProperty('--pen-colour', "#FFFFFF");
+    currentMode = MODE["Eraser"];
 }
 
 const numberToHex = (number) => {
