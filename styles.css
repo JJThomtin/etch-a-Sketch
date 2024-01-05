@@ -45,8 +45,13 @@ footer {
     text-align: left;
 }
 
+.grid-item:hover {
+    background-color: var(--pen-colour) !important;
+}
+
 .grid-item {
     user-select: none;
+    border: 1px solid #ddd;
 }
 
 .left-sidebar {
@@ -114,6 +119,3 @@ footer {
     width: 100%;
 }
 
-.grid-item:hover {
-    background-color: var(--pen-colour);
-}
