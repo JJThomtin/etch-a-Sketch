@@ -6,7 +6,7 @@ body {
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
-    --pen-colour: black;
+    --pen-colour: ;
 }
 
 header {
@@ -28,6 +28,12 @@ button {
     margin-bottom: 20px;
 }
 
+li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
 footer {
     text-align: center;
     position: fixed;
@@ -41,10 +47,16 @@ footer {
     gap: 36px;
 }
 
+canvas
 .colour span {
     text-align: left;
 }
 
+.checkboxes span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .grid-item:hover {
     background-color: var(--pen-colour) !important;
 }
@@ -57,7 +69,7 @@ footer {
 .left-sidebar {
     height: 680px;
     width: 200px;
-    border: solid black 2px;
+    border: solid rgb(0, 0, 0) 2px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +84,7 @@ h3 {
 .right-sidebar {
     height: 680px;
     width: 200px;
-    border: solid black 2px;
+    border: solid rgb(0, 0, 0) 2px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,7 +101,7 @@ h3 {
 #canvas {
     height: 680px;
     width: 680px;
-    border: solid black 10px;
+    border: solid rgb(0, 0, 0) 10px;
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
@@ -110,8 +122,10 @@ h3 {
     gap: 16px;
 }
 
+
 .grid-item {
-  border: 1px solid #ddd;
+    background-color: solid rgba(255, 255, 255, 1);
+    border: 1px solid #ddd;
 }
 
 footer {
