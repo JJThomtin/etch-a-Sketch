@@ -18,13 +18,23 @@
                 </div>
                 <button id="pen-btn">Pen</button>
                 <button id="eraser-btn">Eraser</button>
-                <button id="lighten-btn">Lighten</button>
-                <button id="darken-btn">Darken</button>
+                <button id="tint-btn">Tint</button>
+                <button id="shade-btn">Shade</button>
                 <button id="randomizer-btn">Colour Randomizer</button>
             </div>
             <div id="canvas">
             </div>
             <div class="right-sidebar">
+                <div class="checkboxes">
+                    <span>
+                        <p>Randomise Saturation</p>
+                        <input type="checkbox" name="" id="saturation-chk">
+                    </span>
+                    <span>
+                        <p>Randomise Shade</p>
+                        <input type="checkbox" name="" id="shading-chk">
+                    </span>
+                </div>
                 <div class="bar">
                     <span><strong>Bar Size</strong></span>
                     <input type="range" name="grid" id="grid-id" min="0" min="100">
@@ -32,7 +42,7 @@
                 <button id="clear-btn">Clear</button>
                 <h4>Toggle Grid Border</h4>
                 <label class="switch">
-                    <input type="checkbox" name="" id="grid-border-switch">
+                    <input type="checkbox" name="grid-toggle" id="grid-border-chk">
                 </label>
                 <button id="setting"><i class="fa fa-gear" style="font-size:36px;"></i></button>
             </div>
