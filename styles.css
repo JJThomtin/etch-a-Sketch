@@ -56,12 +56,6 @@ canvas
     display: flex;
     flex-direction: column;
     align-items: center;
-<<<<<<< HEAD
-=======
-}
-.grid-item:hover {
-    background-color: var(--pen-colour) !important;
->>>>>>> 258dacb78d3831326fdf6a0ed67d8eb2315a6dc9
 }
 
 .grid-item {
